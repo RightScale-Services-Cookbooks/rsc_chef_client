@@ -10,6 +10,8 @@ supports "centos"
 supports "redhat"
 supports "ubuntu"
 
+depends 'marker', '~> 1.0.0'
+
 recipe "rsc_chef_client::install_client",
   "Installs and configures the Chef Client."
 
