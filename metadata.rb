@@ -45,7 +45,7 @@ attribute "chef/client/validator_pem",
     "Private SSH key which will be used to authenticate the Chef Client on" +
     " the remote Chef Server.",
   :required => "required",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/validation_name",
   :display_name => "Chef Client Validation Name",
@@ -55,7 +55,7 @@ attribute "chef/client/validation_name",
     " validation_name located on the Server and in the Client configuration" +
     " file must match. Example: ORG-validator",
   :required => "required",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/node_name",
   :display_name => "Chef Client Node Name",
@@ -64,7 +64,7 @@ attribute "chef/client/node_name",
     " Chef Server. If nothing is specified, the instance FQDN will be used." +
     " Example: chef-client-host1",
   :required => "optional",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/environment",
   :display_name => "Chef Client Environment",
@@ -73,7 +73,7 @@ attribute "chef/client/environment",
     " Example: development",
   :required => "optional",
   :default => "_default",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/company",
   :display_name => "Chef Company Name",
@@ -83,7 +83,7 @@ attribute "chef/client/company",
     " specified in both the Server and the Client configuration file must" +
     " match. Example: MyCompany",
   :required => "optional",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/roles",
   :display_name => "Set of Client Roles",
@@ -92,7 +92,7 @@ attribute "chef/client/roles",
     " The Chef Client will execute the roles in the order specified here." +
     " Example: webserver, monitoring",
   :required => "optional",
-  :recipes => ["chef::install_client", "chef::do_client_converge"]
+  :recipes => ["rsc_chef_client::install_client", "rsc_chef_client::do_client_converge"]
 
 attribute "chef/client/runlist",
   :display_name => "JSON String used to set the permanent run_list for chef-client.",
