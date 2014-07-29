@@ -12,13 +12,13 @@ supports "ubuntu"
 
 depends "rightscale"
 
-recipe "chef::install_client",
+recipe "rsc_chef_client::install_client",
   "Installs and configures the Chef Client."
 
-recipe "chef::do_client_converge",
+recipe "rsc_chef_client::do_client_converge",
   "Allows manual update/re-run of runlist on the Chef Client."
 
-recipe "chef::do_unregister_request",
+recipe "rsc_chef_client::do_unregister_request",
   "Deletes the node and registered client on the Chef Server."
 
 attribute "chef/client/version",
@@ -28,7 +28,7 @@ attribute "chef/client/version",
     " Server. Example: 11.12.4",
   :required => "optional",
   :default => "11.12.4",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/server_url",
   :display_name => "Chef Server URL",
@@ -38,7 +38,7 @@ attribute "chef/client/server_url",
     " https://api.opscode.com/organizations/ORGNAME." +
     " Example: http://example.com:4000/chef",
   :required => "required",
-  :recipes => ["chef::install_client", "chef::do_unregister_request"]
+  :recipes => ["rsc_chef_client::install_client", "rsc_chef_client::do_unregister_request"]
 
 attribute "chef/client/validator_pem",
   :display_name => "Private Key to Register the Chef Client with the Chef" +
@@ -102,7 +102,7 @@ attribute "chef/client/runlist",
       "A custom JSON String used to set the permanent run_list for chef-client. If set, this overrides chef/client/roles." +
           " Example: recipe[ntp::default], recipe[apache2], role[foobar]",
   :required => "optional",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/runlist_override",
   :display_name => "JSON String used to override the first run of chef-client.",
@@ -110,7 +110,7 @@ attribute "chef/client/runlist_override",
     "A custom JSON string to override the first run of chef-client." +
     " Example: recipe[ntp::default]",
   :required => "optional",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/log_level",
   :display_name => "Logging Level",
@@ -118,7 +118,7 @@ attribute "chef/client/log_level",
     "The level of logging that will be stored in the log file. Example: debug",
   :required => "optional",
   :default => "info",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/log_location",
   :display_name => "Log File Location",
@@ -126,7 +126,7 @@ attribute "chef/client/log_location",
     "The location of the log file. Example: /var/log/chef-client.log",
   :required => "optional",
   :default => "/var/log/chef-client.log",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
 
 attribute "chef/client/data_bag_secret",
   :display_name => "Data Bag Secret Key",
@@ -135,5 +135,5 @@ attribute "chef/client/data_bag_secret",
     " Example: cred:CHEF_DATA_BAG_SECRET",
   :required => "optional",
   :default => "",
-  :recipes => ["chef::install_client"]
+  :recipes => ["rsc_chef_client::install_client"]
  
