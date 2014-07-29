@@ -6,7 +6,9 @@
 # http://www.rightscale.com/terms.php and, if applicable, other agreements
 # such as a RightScale Master Subscription Agreement.
 
-rightscale_marker
+marker "recipe_start_rightscale" do
+  template "rightscale_audit_entry.erb"
+end
 
 log "  Current Chef Client role(s) are: #{node[:chef][:client][:current_roles]}"
 
