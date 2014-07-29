@@ -97,9 +97,9 @@ attribute "chef/client/roles",
   :recipes => ["rsc_chef_client::install_client", "rsc_chef_client::do_client_converge"]
 
 attribute "chef/client/runlist",
-  :display_name => "JSON String used to set the permanent run_list for chef-client.",
+  :display_name => "String used to set the permanent run_list for chef-client.",
   :description =>
-      "A custom JSON String used to set the permanent run_list for chef-client. If set, this overrides chef/client/roles." +
+      "A string used to set the permanent run_list for chef-client. If set, this overrides chef/client/roles." +
           " Example: recipe[ntp::default], recipe[apache2], role[foobar]",
   :required => "optional",
   :recipes => ["rsc_chef_client::install_client"]
