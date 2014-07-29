@@ -10,8 +10,6 @@ supports "centos"
 supports "redhat"
 supports "ubuntu"
 
-depends "rightscale"
-
 recipe "rsc_chef_client::install_client",
   "Installs and configures the Chef Client."
 
