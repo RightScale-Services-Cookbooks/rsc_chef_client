@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef
+# Cookbook Name:: rsc_chef_client
 #
 # Copyright RightScale, Inc. All rights reserved.
 # All access and use subject to the RightScale Terms of Service available at
@@ -15,7 +15,7 @@ end
 cookbook_file "/tmp/install.sh" do
   source "install.sh"
   mode "0755"
-  cookbook "chef"
+  cookbook "rsc_chef_client"
 end
 
 # Installs the Chef Client using user selected version.
@@ -34,7 +34,7 @@ template "#{node[:chef][:client][:config_dir]}/client.rb" do
   source "client.rb.erb"
   mode "0644"
   backup false
-  cookbook "chef"
+  cookbook "rsc_chef_client"
   variables(
     :server_url => node[:chef][:client][:server_url],
     :validation_name => node[:chef][:client][:validation_name],
@@ -62,7 +62,7 @@ template "#{node[:chef][:client][:config_dir]}/validation.pem" do
   source "validation_key.erb"
   mode "0600"
   backup false
-  cookbook "chef"
+  cookbook "rsc_chef_client"
   variables(
     :validation_key => node[:chef][:client][:validator_pem]
   )
@@ -78,7 +78,7 @@ end
 # Creates runlist.json file.
 template "#{node[:chef][:client][:config_dir]}/runlist.json" do
   source "runlist.json.erb"
-  cookbook "chef"
+  cookbook "rsc_chef_client"
   mode "0440"
   backup false
   variables(
