@@ -1,4 +1,4 @@
-name             "rsc-chef-client"
+name             "rsc_chef_client"
 maintainer       "RightScale, Inc."
 maintainer_email "support@rightscale.com"
 license          "Copyright RightScale, Inc. All rights reserved."
