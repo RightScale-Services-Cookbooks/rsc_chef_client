@@ -2,7 +2,7 @@ name             "rsc_chef_client"
 maintainer       "RightScale, Inc."
 maintainer_email "support@rightscale.com"
 license          "Copyright RightScale, Inc. All rights reserved."
-description      "Installs and configures the Chef Client and Server"
+description      "Installs and configures Chef Client"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "14.0.0"
 
