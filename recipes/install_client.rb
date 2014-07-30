@@ -85,8 +85,8 @@ template "#{node[:chef][:client][:config_dir]}/runlist.json" do
     :node_name => node[:chef][:client][:node_name],
     :environment => node[:chef][:client][:environment],
     :company => node[:chef][:client][:company],
-    :roles => node[:chef][:client][:roles],
-    :runlist => node[:chef][:client][:runlist]
+    :roles => "#{node[:chef][:client][:roles]}",
+    :runlist => "#{node[:chef][:client][:runlist]}"
   )
 end
 
