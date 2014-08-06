@@ -4,7 +4,7 @@ maintainer_email "support@rightscale.com"
 license          "Copyright RightScale, Inc. All rights reserved."
 description      "Installs and configures Chef Client"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "14.0.1"
+version          "14.0.2"
 
 supports "centos"
 supports "redhat"
