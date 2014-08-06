@@ -30,7 +30,7 @@ log "  Chef Client version #{node[:chef][:client][:version]} installation is" +
 directory node[:chef][:client][:config_dir]
 
 # Creates the cookbooks directory.
-directory "~/cookbooks/"
+`mkdir -p ~/cookbooks/`
 
 # Creates the Chef Client configuration file.
 template "#{node[:chef][:client][:config_dir]}/client.rb" do
