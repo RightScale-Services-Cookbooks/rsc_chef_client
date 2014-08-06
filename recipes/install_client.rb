@@ -29,6 +29,9 @@ log "  Chef Client version #{node[:chef][:client][:version]} installation is" +
 # Creates the Chef Client configuration directory.
 directory node[:chef][:client][:config_dir]
 
+# Creates the cookbooks directory.
+directory "~/cookbooks/"
+
 # Creates the Chef Client configuration file.
 template "#{node[:chef][:client][:config_dir]}/client.rb" do
   source "client.rb.erb"
