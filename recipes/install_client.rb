@@ -105,9 +105,14 @@ extension << " --environment #{node[:chef][:client][:environment]}" \
 extension << " --override-runlist #{node[:chef][:client][:runlist_override]}" \
   unless node[:chef][:client][:runlist_override].empty?
 
+
 # Runs the Chef Client using command extensions.
-execute "run chef-client" do
-  command "chef-client #{extension}"
+if ("#{node[:chef][:client][:server_url]}" != "")
+  execute "run chef-client" do
+    command "chef-client #{extension}"
+  end
+else
+  log "  Skipping chef-client execution as node[:chef][:client][:server_url] is undefined"
 end
 
 log "  Chef Client role(s) are: #{node[:chef][:client][:current_roles]}"
