@@ -37,7 +37,7 @@ attribute "chef/client/server_url",
     " Opscode Hosted Chef use the following syntax" +
     " https://api.opscode.com/organizations/ORGNAME." +
     " Example: http://example.com:4000/chef",
-  :required => "optional",
+  :required => "required",
   :recipes => ["rsc_chef_client::install_client", "rsc_chef_client::do_unregister_request"]
 
 attribute "chef/client/validator_pem",
